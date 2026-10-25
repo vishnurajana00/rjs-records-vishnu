@@ -1,0 +1,163 @@
+App.js
+
+import React from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+
+import Navigation from "./components/Navigation";
+import Home from "./pages/Home";
+import About from "./pages/About";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="app">
+        <header>
+          <h1>My Student Profile</h1>
+          <Navigation />
+        </header>
+
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={<Home />}
+            />
+
+            <Route
+              path="/about"
+              element={<About />}
+            />
+          </Routes>
+        </main>
+
+        <footer>
+          <p>Student Profile Website</p>
+        </footer>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+
+index.css
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f5f9;
+  color: #222;
+}
+
+header {
+  background: #243b55;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.page {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  line-height: 1.7;
+  box-shadow: 0 3px 10px #00000012;
+}
+
+.page h1,
+.page h2 {
+  text-align: center;
+}
+
+.student-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto;
+}
+
+.home-page p {
+  text-align: center;
+}
+
+.about-page section {
+  margin: 25px 0;
+}
+
+.about-page li {
+  margin: 8px 0;
+}
+
+footer {
+  background: #243b55;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .page {
+    margin: 15px;
+    padding: 18px;
+  }
+
+  nav {
+    gap: 18px;
+  }
+}
+
+
+
+
+index.js
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root")
+);
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
